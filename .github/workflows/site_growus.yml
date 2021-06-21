@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -31,7 +31,7 @@ jobs:
         path: '${{ github.workspace }}/target/*.jar'
 
   deploy:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     needs: build
     environment:
       name: 'production'
@@ -49,5 +49,5 @@ jobs:
       with:
         app-name: 'growus'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_208cc69721e745dda15bc31a72452b21 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_ace813e4002f491d866973d1ebca9510 }}
         package: '*.jar'
